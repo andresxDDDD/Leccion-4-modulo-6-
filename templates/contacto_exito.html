@@ -1,0 +1,10 @@
+
+{% extends "base.html" %}
+
+{% block title %}Mensaje Enviado{% endblock %}
+
+{% block content %}
+    <h2>¡Gracias por contactarnos!</h2>
+    <p>Hola <strong>{{ nombre }}</strong>, hemos recibido tu mensaje. Te responderemos pronto.</p>
+    <a href="{% url 'contacto' %}">Enviar otro mensaje</a>
+{% endblock %}

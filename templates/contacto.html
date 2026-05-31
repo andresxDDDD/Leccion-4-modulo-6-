@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content %}
+    <h2>Formulario de Contacto</h2>
+
+    <form method="post" action="{% url 'contacto' %}">
+        {% csrf_token %}
+
+        <p>
+            {{ form.nombre.label_tag }}<br>
+            {{ form.nombre }}
+            {% if form.nombre.errors %}
+                <span style="color: red;">{{ form.nombre.errors }}</span>
+            {% endif %}
+        </p>
+
+        <p>
+            {{ form.correo.label_tag }}<br>
+            {{ form.correo }}
+            {% if form.correo.errors %}
+                <span style="color: red;">{{ form.correo.errors }}</span>
+            {% endif %}
+        </p>
+
+        <p>
+            {{ form.mensaje.label_tag }}<br>
+            {{ form.mensaje }}
+            {% if form.mensaje.errors %}
+                <span style="color: red;">{{ form.mensaje.errors }}</span>
+            {% endif %}
+        </p>
+
+        <button type="submit">Enviar</button>
+    </form>
+{% endblock %}
